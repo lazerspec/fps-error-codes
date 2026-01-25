@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     locale: "en_GB",
     siteName: "FPS Error Code Reference",
   },
+  verification: {
+    google: "rB4hto97qPTThq6CbsTf6yUdkAFPNuaK-KvJw3saFwc",
+  },
 };
 
 export default function RootLayout({
