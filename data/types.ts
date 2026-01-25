@@ -43,7 +43,22 @@ export interface ErrorCode {
 
   /** Related error codes for cross-reference */
   relatedCodes?: string[];
+
+  /** Date this code was last verified against authoritative sources (ISO 8601) */
+  lastVerified: string;
+
+  /** Primary source for this code's data */
+  source: DataSource;
 }
+
+/** Authoritative data sources for error codes */
+export type DataSource =
+  | "LHV Connect"
+  | "ClearBank"
+  | "Starling Bank"
+  | "Form3"
+  | "Pay.UK"
+  | "ISO 20022";
 
 export interface SearchableCode {
   code: string;

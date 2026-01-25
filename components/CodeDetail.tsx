@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { CopyButton } from "@/components/CopyButton";
+import { ReportIssue } from "@/components/ReportIssue";
 import type { ErrorCode } from "@/data/types";
+import { CalendarDays, BookOpen } from "lucide-react";
 
 interface CodeDetailProps {
   code: ErrorCode;
@@ -119,10 +121,29 @@ export function CodeDetail({ code }: CodeDetailProps) {
         </section>
       )}
 
-      {/* Source */}
-      <footer className="mt-12 pt-6 border-t border-border">
+      {/* Data Provenance */}
+      <footer className="mt-12 pt-6 border-t border-border space-y-4">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+          <div className="flex items-center gap-2 text-muted-foreground">
+            <CalendarDays className="h-4 w-4" />
+            <span>Last verified: </span>
+            <time dateTime={code.lastVerified} className="font-medium text-foreground">
+              {new Date(code.lastVerified).toLocaleDateString("en-GB", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })}
+            </time>
+          </div>
+          <div className="flex items-center gap-2 text-muted-foreground">
+            <BookOpen className="h-4 w-4" />
+            <span>Source: </span>
+            <span className="font-medium text-foreground">{code.source}</span>
+          </div>
+        </div>
+
         <p className="text-sm text-muted-foreground">
-          Source: Data compiled and cross-referenced from{" "}
+          Data compiled and cross-referenced from{" "}
           <a
             href="https://lhv.com"
             target="_blank"
@@ -152,6 +173,10 @@ export function CodeDetail({ code }: CodeDetailProps) {
           documentation. These codes are standard Pay.UK / Faster Payments
           Scheme (FPS) specifications.
         </p>
+
+        <div className="pt-2">
+          <ReportIssue code={code.code} scheme={code.scheme} />
+        </div>
       </footer>
     </article>
   );
