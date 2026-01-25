@@ -1,5 +1,9 @@
 import type { ErrorCode } from "../types";
 
+// Data last verified: 2026-01-25
+// Primary source: LHV Connect - Faster Payments Reject & Return Codes
+// Cross-referenced with: ClearBank, Starling Bank, Form3 documentation
+
 export const fpsErrorCodes: ErrorCode[] = [
   // ============================================
   // REJ CODES - Scheme Rejection Codes
@@ -30,6 +34,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["1161", "1178"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1114",
@@ -55,6 +61,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1176", "00000001"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1160",
@@ -80,6 +88,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1177", "00000002"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1161",
@@ -105,6 +115,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["1160", "1175", "1178"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1162",
@@ -130,6 +142,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1171", "00000006"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1163",
@@ -155,6 +169,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1164", "00000005"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1164",
@@ -180,6 +196,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1163", "00000005"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1165",
@@ -205,6 +223,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["00000008"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1166",
@@ -230,6 +250,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1180", "1160"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1167",
@@ -255,6 +277,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1160", "1161"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1168",
@@ -280,6 +304,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["1100", "1169"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1169",
@@ -305,6 +331,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1161", "1170"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1170",
@@ -330,6 +358,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["00000010", "1161"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1171",
@@ -355,6 +385,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1162"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1172",
@@ -380,6 +412,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["9940"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1173",
@@ -405,6 +439,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1174", "1175"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1174",
@@ -430,6 +466,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1173", "1175"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1175",
@@ -455,6 +493,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["1173", "1174"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1176",
@@ -480,6 +520,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1114", "1177"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1177",
@@ -505,6 +547,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1160", "1176", "1178"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1178",
@@ -530,6 +574,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["1161", "1177"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1179",
@@ -555,6 +601,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1174", "1180"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1180",
@@ -580,6 +628,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1166", "1177"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1181",
@@ -605,6 +655,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["9913"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
 
   // System Category
@@ -632,6 +684,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["9909", "9912"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "1930",
@@ -657,6 +711,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["9930"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "4021",
@@ -682,6 +738,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["9911", "9935"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "4400",
@@ -707,6 +765,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["1100", "9912"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "9902",
@@ -732,6 +792,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1930", "9930"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "9905",
@@ -757,6 +819,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["9908", "9934"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "9908",
@@ -782,6 +846,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1114", "9905"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "9909",
@@ -807,6 +873,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["1909", "9910"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "9910",
@@ -832,6 +900,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["9911", "9912"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "9911",
@@ -857,6 +927,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["4021", "9910", "9912"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "9912",
@@ -882,6 +954,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["9910", "9911"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "9913",
@@ -907,6 +981,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["1181"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "9930",
@@ -932,6 +1008,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1930", "9902"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "9931",
@@ -957,6 +1035,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["9932", "9943"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "9932",
@@ -982,6 +1062,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["9931", "9933"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "9933",
@@ -1007,6 +1089,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["9932", "9934"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "9934",
@@ -1032,6 +1116,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["9935", "9936"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "9935",
@@ -1057,6 +1143,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["4021", "9934", "9936"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "9936",
@@ -1082,6 +1170,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["9934", "9935"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
 
   // Limits Category
@@ -1109,6 +1199,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["9941", "9942"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "9941",
@@ -1134,6 +1226,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["9940", "9942"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "9942",
@@ -1159,6 +1253,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["9940", "9943"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "9943",
@@ -1184,6 +1280,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["9931", "9933"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "9944",
@@ -1206,6 +1304,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["9945", "9909"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "9945",
@@ -1228,6 +1328,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["9944", "9909"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "9950",
@@ -1253,6 +1355,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["9905", "9932"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
 
   // ============================================
@@ -1282,6 +1386,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1114", "1176"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "00000002",
@@ -1307,6 +1413,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1160", "1177"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "00000003",
@@ -1332,6 +1440,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["00000002", "1160"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "00000004",
@@ -1357,6 +1467,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["00000002", "00000003"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "00000005",
@@ -1382,6 +1494,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1163", "1164"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "00000006",
@@ -1407,6 +1521,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1162", "1171"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "00000007",
@@ -1432,6 +1548,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["00000009"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "00000008",
@@ -1457,6 +1575,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1165"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "00000009",
@@ -1482,6 +1602,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["00000007"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "00000010",
@@ -1507,6 +1629,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1170"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "00000011",
@@ -1532,6 +1656,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["1100", "1161"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "00000012",
@@ -1557,6 +1683,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["1166", "1180"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "00000013",
@@ -1582,6 +1710,8 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "fatal",
     relatedCodes: ["00000003", "00000004"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
   {
     code: "00000014",
@@ -1607,5 +1737,7 @@ export const fpsErrorCodes: ErrorCode[] = [
     ],
     severity: "retryable",
     relatedCodes: ["1100", "00000011"],
+    lastVerified: "2026-01-25",
+    source: "LHV Connect",
   },
 ];
