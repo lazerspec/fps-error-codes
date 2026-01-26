@@ -6,9 +6,10 @@ import { Button } from "@/components/ui/button";
 interface CopyButtonProps {
   text: string;
   className?: string;
+  label?: string;
 }
 
-export function CopyButton({ text, className = "" }: CopyButtonProps) {
+export function CopyButton({ text, className = "", label = "Copy" }: CopyButtonProps) {
   const [copied, setCopied] = React.useState(false);
 
   const handleCopy = async () => {
@@ -59,7 +60,7 @@ export function CopyButton({ text, className = "" }: CopyButtonProps) {
           <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
         </svg>
       )}
-      <span className="ml-1 text-xs">{copied ? "Copied!" : "Copy"}</span>
+      <span className="ml-1 text-xs">{copied ? "Copied!" : label}</span>
     </Button>
   );
 }
