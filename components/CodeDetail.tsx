@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { CopyButton } from "@/components/CopyButton";
 import { ReportIssue } from "@/components/ReportIssue";
+import { DisclaimerBanner } from "@/components/DisclaimerBanner";
 import type { ErrorCode } from "@/data/types";
 import { CalendarDays, BookOpen } from "lucide-react";
 
@@ -55,6 +56,9 @@ export function CodeDetail({ code }: CodeDetailProps) {
         </div>
       </header>
 
+      {/* Disclaimer Banner */}
+      <DisclaimerBanner />
+
       {/* Overview */}
       <section className="mb-8">
         <div className="p-4 sm:p-6 bg-muted/50 rounded-lg border border-border">
@@ -90,7 +94,15 @@ export function CodeDetail({ code }: CodeDetailProps) {
 
       {/* Remediation Steps */}
       <section className="mb-8">
-        <h2 className="text-lg font-semibold mb-4">How to Fix</h2>
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-lg font-semibold">How to Fix</h2>
+          <CopyButton
+            text={code.remediationSteps
+              .map((step, i) => `${i + 1}. ${step}`)
+              .join("\n")}
+            label="Copy all"
+          />
+        </div>
         <ol className="space-y-3">
           {code.remediationSteps.map((step, index) => (
             <li key={index} className="flex items-start gap-3">
