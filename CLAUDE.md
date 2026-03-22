@@ -33,7 +33,7 @@ components/
 
 data/
 ├── types.ts                # ErrorCode interface and types
-├── codes/fps.ts            # All 61 FPS error codes with content
+├── codes/fps.ts            # All 64 FPS error codes with content
 └── index.ts                # Exports and helper functions
 ```
 
@@ -90,19 +90,10 @@ Custom agent prompts are in `.claude/agents/`:
 
 ## Deployment
 
-See `DEPLOYMENT.md` for full deployment instructions.
-
-**Quick deploy to Vercel:**
-```bash
-npm i -g vercel
-vercel login
-vercel --prod
-```
-
-**Free hosting options:**
-- **Vercel** (recommended) - Best Next.js support, 100GB bandwidth/mo
-- **Netlify** - 100GB bandwidth/mo, needs plugin
-- **Cloudflare Pages** - Unlimited bandwidth, needs adapter
+- **Live site**: https://fpserrorcodes.co.uk
+- **Hosting**: Vercel (auto-deploys from `main` branch)
+- **Domain**: `fpserrorcodes.co.uk` registered via Namecheap, DNS pointed to Vercel
+- **Branch protection**: `main` requires PR with 1 review, no direct pushes
 
 ## Design Notes
 
