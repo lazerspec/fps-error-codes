@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://fps-error-codes.vercel.app/sitemap.xml",
+    sitemap: "https://fpserrorcodes.co.uk/sitemap.xml",
   };
 }

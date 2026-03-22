@@ -63,7 +63,7 @@ export default async function CodePage({ params }: PageProps) {
     dateModified: new Date().toISOString(),
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://fps-error-codes.vercel.app/code/fps/${code.code}`,
+      "@id": `https://fpserrorcodes.co.uk/code/fps/${code.code}`,
     },
   };
 

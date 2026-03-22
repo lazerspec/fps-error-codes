@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { allErrorCodes } from "@/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://fps-error-codes.vercel.app";
+  const baseUrl = "https://fpserrorcodes.co.uk";
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
