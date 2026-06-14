@@ -15,7 +15,7 @@ import {
   getExactMappings,
   getApproximateMappings,
 } from "./codes/mapping";
-import type { ErrorCode, SearchableCode } from "./types";
+import type { ErrorCode, SearchEntry } from "./types";
 
 export * from "./types";
 
@@ -71,13 +71,43 @@ export function getAllCategories(): string[] {
   return [...new Set(allErrorCodes.map((c) => c.category))];
 }
 
-export function getSearchableData(): SearchableCode[] {
-  return allErrorCodes.map((c) => ({
-    code: c.code,
-    type: c.type,
-    scheme: c.scheme,
-    category: c.category,
-    shortDescription: c.shortDescription,
-    detailedExplanation: c.detailedExplanation,
-  }));
+/**
+ * Unified, searchable index across FPS codes and ISO 20022 codes.
+ * FPS entries deep-link to their detail page; ISO entries deep-link to the
+ * ISO 20022 table (/codes/future) with a ?code= param for scroll + highlight.
+ * crossRef surfaces the first FPS<->ISO mapping for quick context.
+ */
+export function getSearchIndex(): SearchEntry[] {
+  const isoCodeAsString = (code: string | string[]): string[] =>
+    Array.isArray(code) ? code : [code];
+
+  const fpsEntries: SearchEntry[] = fpsErrorCodes.map((c) => {
+    const mapping = getMappingByFpsCode(c.code);
+    const isoCodes = mapping ? isoCodeAsString(mapping.iso20022Code) : [];
+    return {
+      kind: "fps" as const,
+      code: c.code,
+      title: c.shortDescription,
+      category: c.category,
+      type: c.type,
+      severity: c.severity,
+      href: `/code/fps/${c.code}`,
+      crossRef: isoCodes.length > 0 ? `↔ ${isoCodes[0]}` : undefined,
+    };
+  });
+
+  const isoEntries: SearchEntry[] = iso20022Codes.map((c) => {
+    const mappings = getMappingsByISO20022Code(c.code);
+    const fpsCode = mappings.length > 0 ? mappings[0].fpsCode : undefined;
+    return {
+      kind: "iso" as const,
+      code: c.code,
+      title: c.description,
+      category: c.category,
+      href: `/codes/future?code=${c.code}`,
+      crossRef: fpsCode ? `↔ FPS ${fpsCode}` : undefined,
+    };
+  });
+
+  return [...fpsEntries, ...isoEntries];
 }

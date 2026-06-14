@@ -1,9 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { Search } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import { useCommandPalette } from "./CommandPaletteProvider";
 
 export function Header() {
+  const { setOpen } = useCommandPalette();
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="mx-auto flex h-14 max-w-4xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -32,10 +36,18 @@ export function Header() {
           >
             ISO 20022
           </Link>
-          <div className="hidden sm:flex items-center gap-1.5 rounded-md border border-border bg-muted/50 px-2 py-1 text-xs text-muted-foreground">
-            <kbd className="font-mono">⌘</kbd>
-            <kbd className="font-mono">K</kbd>
-          </div>
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            aria-label="Search codes"
+            className="flex items-center gap-1.5 rounded-md border border-border bg-muted/50 px-2 py-1 text-xs text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+          >
+            <Search className="size-3.5" />
+            <span className="hidden sm:flex items-center gap-1">
+              <kbd className="font-mono">⌘</kbd>
+              <kbd className="font-mono">K</kbd>
+            </span>
+          </button>
           <ThemeToggle />
         </div>
       </div>

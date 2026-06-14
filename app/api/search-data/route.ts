@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { getSearchableData } from "@/data";
+import { getSearchIndex } from "@/data";
 
 export async function GET() {
-  const data = getSearchableData();
+  const data = getSearchIndex();
   return NextResponse.json(data);
 }

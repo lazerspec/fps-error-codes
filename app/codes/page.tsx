@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { allErrorCodes, getAllCategories } from "@/data";
 import { CodeCard } from "@/components/CodeCard";
 import { CategoryFilter } from "@/components/CategoryFilter";
-import { SearchBar } from "@/components/SearchBar";
+import { SearchTrigger } from "@/components/SearchTrigger";
 
 export const metadata: Metadata = {
   title: "Browse All FPS Error Codes",
@@ -42,7 +42,7 @@ export default async function CodesPage({ searchParams }: PageProps) {
           Filter by type or category to find what you need.
         </p>
 
-        <SearchBar
+        <SearchTrigger
           placeholder="Search codes..."
           className="max-w-md mb-6"
         />

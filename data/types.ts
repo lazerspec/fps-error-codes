@@ -60,13 +60,31 @@ export type DataSource =
   | "Pay.UK"
   | "ISO 20022";
 
-export interface SearchableCode {
+/** Unified search index entry covering both FPS and ISO 20022 codes */
+export interface SearchEntry {
+  /** Which dataset this entry came from */
+  kind: "fps" | "iso";
+
+  /** The error code (e.g., "1114", "AC04") */
   code: string;
-  type: ErrorCodeType;
-  scheme: Scheme;
-  category: Category;
-  shortDescription: string;
-  detailedExplanation: string;
+
+  /** Display title: fps = shortDescription, iso = description */
+  title: string;
+
+  /** Category for grouping/weighting */
+  category: string;
+
+  /** REJ/RET (fps only) */
+  type?: ErrorCodeType;
+
+  /** Severity (fps only) */
+  severity?: Severity;
+
+  /** Destination URL: fps = /code/fps/<code>, iso = /codes/future?code=<code> */
+  href: string;
+
+  /** Short cross-reference hint, e.g. "↔ AC04" or "↔ FPS 1160" */
+  crossRef?: string;
 }
 
 /** Payment rails/schemes that use ISO 20022 */
