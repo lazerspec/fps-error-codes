@@ -20,6 +20,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://fpserrorcodes.co.uk"),
   title: {
     default: "FPS Error Code Reference | Payment Status Decoder",
     template: "%s | FPS Error Codes",
@@ -44,6 +45,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_GB",
     siteName: "FPS Error Code Reference",
+  },
+  twitter: {
+    card: "summary_large_image",
   },
   verification: {
     google: "rB4hto97qPTThq6CbsTf6yUdkAFPNuaK-KvJw3saFwc",
