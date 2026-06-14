@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: "article",
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title,
       description,
     },
@@ -51,6 +51,8 @@ export default async function CodePage({ params }: PageProps) {
     notFound();
   }
 
+  const verifiedDate = new Date(code.lastVerified).toISOString();
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "TechArticle",
@@ -60,11 +62,43 @@ export default async function CodePage({ params }: PageProps) {
       "@type": "Organization",
       name: "Payment Status Decoder",
     },
-    dateModified: new Date().toISOString(),
+    datePublished: verifiedDate,
+    dateModified: verifiedDate,
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `https://fpserrorcodes.co.uk/code/fps/${code.code}`,
     },
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://fpserrorcodes.co.uk",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Codes",
+        item: "https://fpserrorcodes.co.uk/codes",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "FPS",
+        item: "https://fpserrorcodes.co.uk/codes?scheme=fps",
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: code.code,
+        item: `https://fpserrorcodes.co.uk/code/fps/${code.code}`,
+      },
+    ],
   };
 
   return (
@@ -72,6 +106,10 @@ export default async function CodePage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <CodeDetail code={code} />
     </div>
