@@ -3,6 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import { CopyButton } from "@/components/CopyButton";
 import { ReportIssue } from "@/components/ReportIssue";
 import { DisclaimerBanner } from "@/components/DisclaimerBanner";
+import { AtAGlance } from "@/components/AtAGlance";
+import { getCodeBySlug } from "@/data";
 import type { ErrorCode } from "@/data/types";
 import { CalendarDays, BookOpen } from "lucide-react";
 
@@ -55,6 +57,9 @@ export function CodeDetail({ code }: CodeDetailProps) {
           <Badge variant="outline">{code.category}</Badge>
         </div>
       </header>
+
+      {/* At a glance */}
+      <AtAGlance code={code} />
 
       {/* Disclaimer Banner */}
       <DisclaimerBanner />
@@ -119,16 +124,29 @@ export function CodeDetail({ code }: CodeDetailProps) {
       {code.relatedCodes && code.relatedCodes.length > 0 && (
         <section className="mb-8">
           <h2 className="text-lg font-semibold mb-4">Related Codes</h2>
-          <div className="flex flex-wrap gap-2">
-            {code.relatedCodes.map((relatedCode) => (
-              <Link
-                key={relatedCode}
-                href={`/code/fps/${relatedCode}`}
-                className="inline-flex items-center px-3 py-1.5 rounded-md border border-border hover:bg-muted transition-colors"
-              >
-                <code className="font-mono text-sm">{relatedCode}</code>
-              </Link>
-            ))}
+          <div className="flex flex-col gap-2">
+            {code.relatedCodes.map((relatedCode) => {
+              const related = getCodeBySlug("fps", relatedCode);
+              return (
+                <Link
+                  key={relatedCode}
+                  href={`/code/fps/${relatedCode}`}
+                  className="inline-flex items-center gap-2 px-3 py-2 rounded-md border border-border hover:bg-muted transition-colors"
+                >
+                  <code className="font-mono text-sm shrink-0">
+                    {relatedCode}
+                  </code>
+                  {related && (
+                    <>
+                      <span className="text-muted-foreground shrink-0">·</span>
+                      <span className="text-sm text-muted-foreground">
+                        {related.shortDescription}
+                      </span>
+                    </>
+                  )}
+                </Link>
+              );
+            })}
           </div>
         </section>
       )}

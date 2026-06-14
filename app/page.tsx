@@ -1,5 +1,8 @@
 import Link from "next/link";
+import { ArrowRight, HelpCircle, BookOpen, Code2, Info } from "lucide-react";
 import { HeroSearch } from "@/components/HeroSearch";
+import { HomeCategoryGrid } from "@/components/HomeCategoryGrid";
+import { allErrorCodes, iso20022Codes, codeMappings } from "@/data";
 
 const popularCodes = [
   { code: "1114", description: "Account unknown" },
@@ -8,9 +11,37 @@ const popularCodes = [
   { code: "9909", description: "System malfunction" },
 ];
 
+const quickLinks = [
+  {
+    href: "/faq",
+    title: "FAQ",
+    description: "Common questions about FPS error codes.",
+    icon: HelpCircle,
+  },
+  {
+    href: "/glossary",
+    title: "Glossary",
+    description: "Payments terms explained in plain English.",
+    icon: BookOpen,
+  },
+  {
+    href: "/developers",
+    title: "Developers / API",
+    description: "Integrate FPS code data into your tools.",
+    icon: Code2,
+  },
+  {
+    href: "/what-is-fps",
+    title: "What is FPS?",
+    description: "A primer on the Faster Payments Scheme.",
+    icon: Info,
+  },
+];
+
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center px-4 py-16 sm:py-24">
+    <div className="flex flex-col items-center px-4 py-16 sm:py-24">
+      {/* Hero */}
       <div className="w-full max-w-2xl text-center">
         <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
           FPS Error Code Reference
@@ -42,49 +73,73 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-full max-w-4xl mt-16 sm:mt-24">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="p-6 rounded-lg border border-border">
-            <h2 className="font-semibold mb-2">REJ Codes</h2>
-            <p className="text-sm text-muted-foreground mb-3">
-              Scheme rejection codes returned instantly when a payment cannot be
-              processed.
-            </p>
-            <Link
-              href="/codes?type=REJ"
-              className="text-sm text-indigo hover:underline"
-            >
-              View all REJ codes
-            </Link>
-          </div>
+      {/* Stats strip */}
+      <p className="mt-10 text-center text-sm text-muted-foreground">
+        {allErrorCodes.length} FPS codes
+        <span className="mx-2 text-border">·</span>
+        {iso20022Codes.length} ISO 20022 codes
+        <span className="mx-2 text-border">·</span>
+        {codeMappings.length} FPS ↔ ISO mappings
+      </p>
 
-          <div className="p-6 rounded-lg border border-border">
-            <h2 className="font-semibold mb-2">RET Codes</h2>
-            <p className="text-sm text-muted-foreground mb-3">
-              Bank return codes for payments returned after initial acceptance.
-            </p>
-            <Link
-              href="/codes?type=RET"
-              className="text-sm text-indigo hover:underline"
-            >
-              View all RET codes
-            </Link>
-          </div>
+      {/* Browse by category */}
+      <section className="w-full max-w-4xl mt-16 sm:mt-20">
+        <h2 className="text-lg font-semibold mb-4">Browse by category</h2>
+        <HomeCategoryGrid />
+      </section>
 
-          <div className="p-6 rounded-lg border border-border sm:col-span-2 lg:col-span-1">
-            <h2 className="font-semibold mb-2">Browse All</h2>
-            <p className="text-sm text-muted-foreground mb-3">
-              View all FPS error codes organized by category with filters.
-            </p>
+      {/* ISO 20022 migration banner */}
+      <section className="w-full max-w-4xl mt-16 sm:mt-20">
+        <div className="rounded-xl border border-indigo/30 bg-indigo/5 p-6 sm:p-8">
+          <h2 className="text-xl font-semibold mb-2 text-indigo">
+            FPS is migrating to ISO 20022
+          </h2>
+          <p className="text-sm text-muted-foreground max-w-2xl mb-5">
+            Under the New Payments Architecture, the UK&apos;s Faster Payments
+            Scheme is moving from today&apos;s numeric codes to the global ISO
+            20022 messaging standard.
+          </p>
+          <div className="flex flex-wrap gap-3">
             <Link
-              href="/codes"
-              className="text-sm text-indigo hover:underline"
+              href="/codes/mapping"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo hover:underline"
             >
-              Browse all codes
+              FPS ↔ ISO 20022 mapping
+              <ArrowRight className="size-4" />
+            </Link>
+            <Link
+              href="/codes/future"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo hover:underline"
+            >
+              Browse future codes
+              <ArrowRight className="size-4" />
             </Link>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Quick links */}
+      <section className="w-full max-w-4xl mt-16 sm:mt-20">
+        <h2 className="text-lg font-semibold mb-4">Learn more</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {quickLinks.map((link) => {
+            const Icon = link.icon;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="group flex flex-col gap-2 p-5 rounded-lg border border-border hover:border-indigo/60 hover:bg-muted/50 transition-colors"
+              >
+                <Icon className="size-5 text-indigo" />
+                <span className="font-medium">{link.title}</span>
+                <span className="text-sm text-muted-foreground">
+                  {link.description}
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
     </div>
   );
 }
