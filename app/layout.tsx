@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Inter } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -81,9 +82,44 @@ export default function RootLayout({
               <Header />
               <main className="flex-1">{children}</main>
               <CommandPalette />
-              <footer className="border-t border-border py-6 mt-auto">
+              <footer className="border-t border-border py-8 mt-auto">
               <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-                <p className="text-center text-sm text-muted-foreground">
+                <nav
+                  aria-label="Footer"
+                  className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm"
+                >
+                  <Link
+                    href="/what-is-fps"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    What is FPS?
+                  </Link>
+                  <Link
+                    href="/faq"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    FAQ
+                  </Link>
+                  <Link
+                    href="/glossary"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Glossary
+                  </Link>
+                  <Link
+                    href="/developers"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Developers
+                  </Link>
+                  <Link
+                    href="/references"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    References
+                  </Link>
+                </nav>
+                <p className="mt-6 text-center text-sm text-muted-foreground">
                   FPS Error Code Reference. Data sourced from Pay.UK and UK
                   banking documentation.
                 </p>
