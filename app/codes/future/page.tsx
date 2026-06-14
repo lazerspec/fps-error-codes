@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Info } from "lucide-react";
 import {
@@ -23,12 +24,47 @@ const railColors: Record<PaymentRail, string> = {
 };
 
 export default function FutureCodesPage() {
-  const [search, setSearch] = useState("");
+  return (
+    <Suspense fallback={null}>
+      <FutureCodesContent />
+    </Suspense>
+  );
+}
+
+function FutureCodesContent() {
+  const searchParams = useSearchParams();
+  const deepLinkCode = searchParams.get("code");
+
+  // Seed the initial search + highlight from the deep-link param (lazy init,
+  // so we avoid synchronous setState inside the effect on mount).
+  const [search, setSearch] = useState(() => deepLinkCode ?? "");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedRail, setSelectedRail] = useState<PaymentRail | null>(null);
+  const [highlightedCode, setHighlightedCode] = useState<string | null>(
+    () => deepLinkCode
+  );
 
   const categories = getAllISO20022Categories();
   const rails = getAllPaymentRails();
+
+  // Deep-link: scroll to and briefly highlight the targeted code on mount.
+  useEffect(() => {
+    if (!deepLinkCode) return;
+
+    const scrollTimer = window.setTimeout(() => {
+      const el = document.getElementById(`iso-${deepLinkCode}`);
+      el?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 100);
+
+    const highlightTimer = window.setTimeout(() => {
+      setHighlightedCode(null);
+    }, 2000);
+
+    return () => {
+      window.clearTimeout(scrollTimer);
+      window.clearTimeout(highlightTimer);
+    };
+  }, [deepLinkCode]);
 
   const filteredCodes = useMemo(() => {
     let codes = iso20022Codes;
@@ -168,7 +204,15 @@ export default function FutureCodesPage() {
 
       <div className="space-y-3">
         {filteredCodes.map((code) => (
-          <Card key={code.code} className="hover:shadow-sm transition-shadow">
+          <Card
+            key={code.code}
+            id={`iso-${code.code}`}
+            className={`hover:shadow-sm transition-shadow ${
+              highlightedCode === code.code
+                ? "ring-2 ring-primary transition-[box-shadow] duration-500"
+                : ""
+            }`}
+          >
             <CardHeader className="pb-2">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-3">

@@ -4,6 +4,8 @@ import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Header } from "@/components/Header";
+import { CommandPaletteProvider } from "@/components/CommandPaletteProvider";
+import { CommandPalette } from "@/components/CommandPalette";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -70,18 +72,21 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative min-h-screen flex flex-col">
-            <Header />
-            <main className="flex-1">{children}</main>
-            <footer className="border-t border-border py-6 mt-auto">
+          <CommandPaletteProvider>
+            <div className="relative min-h-screen flex flex-col">
+              <Header />
+              <main className="flex-1">{children}</main>
+              <CommandPalette />
+              <footer className="border-t border-border py-6 mt-auto">
               <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
                 <p className="text-center text-sm text-muted-foreground">
                   FPS Error Code Reference. Data sourced from Pay.UK and UK
                   banking documentation.
                 </p>
               </div>
-            </footer>
-          </div>
+              </footer>
+            </div>
+          </CommandPaletteProvider>
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />

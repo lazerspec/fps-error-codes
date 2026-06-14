@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SearchBar } from "@/components/SearchBar";
+import { HeroSearch } from "@/components/HeroSearch";
 
 const popularCodes = [
   { code: "1114", description: "Account unknown" },
@@ -20,9 +20,8 @@ export default function Home() {
           English explanations and fixes.
         </p>
 
-        <SearchBar
+        <HeroSearch
           placeholder="Search error codes..."
-          autoFocus
           className="w-full max-w-xl mx-auto mb-8"
         />
 
