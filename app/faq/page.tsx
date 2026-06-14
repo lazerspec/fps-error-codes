@@ -19,14 +19,15 @@ const faqs: QA[] = [
   {
     question: "What is an FPS error code?",
     answerText:
-      "An FPS error code is a short code returned when a UK Faster Payment cannot be completed as expected. It tells the sending bank or payment service provider why a payment was rejected before it was accepted, or returned after it had been accepted. Codes are either numeric (REJ) or descriptive (RET) depending on the stage at which the problem occurred.",
+      "An FPS error code is a short code returned when a UK Faster Payment cannot be completed as expected. It tells the sending bank or payment service provider why a payment was rejected before it was accepted, or returned after it had been accepted. They fall into two groups based on stage: rejects (REJ) before a payment is accepted, and returns (RET) after it has been accepted.",
     answer: (
       <p>
         An FPS error code is a short code returned when a UK Faster Payment
         cannot be completed as expected. It tells the sending bank or payment
         service provider why a payment was rejected before it was accepted, or
-        returned after it had been accepted. Codes are either numeric (REJ) or
-        descriptive (RET) depending on the stage at which the problem occurred.
+        returned after it had been accepted. They fall into two groups based on
+        stage: rejects (REJ) before a payment is accepted, and returns (RET)
+        after it has been accepted.
       </p>
     ),
   },
