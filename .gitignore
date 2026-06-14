@@ -43,3 +43,5 @@ next-env.d.ts
 # local workflow files
 DEPLOYMENT.md
 .claude/agents/
+.claude/worktrees/
+.superpowers/
